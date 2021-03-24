@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="SemaforySterowanieTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SemaforySterowanieTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Image Source="train_track.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Height="810"/>
+        <Image Source="Assets/semafor_empty.jpg" Width="100" HorizontalAlignment="Center" Margin="-210, 600, 0, 0"/>
+        <Image Source="Assets/semafor_empty.jpg" Width="100" HorizontalAlignment="Center" Margin="210, -600, 0, 0"/>
+        <Image Source="Assets/green_light.jpg" Width="70" Margin="-210, 680, 0, 0" Name="sem1Green"/>
+        <Image Source="Assets/green_light.jpg" Width="70" Margin="210, -520, 0, 0" Name="sem2Green"/>
+        <Image Source="Assets/red_light.jpg" Width="70" Margin="-210, 520, 0, 0" Name="sem1Red"/>
+        <Image Source="Assets/red_light.jpg" Width="70" Margin="210, -680, 0, 0" Name="sem2Red"/>
+        <ToggleSwitch Name="sem1Switch" HorizontalAlignment="Center" Margin="-180, 380, 0, 0" OffContent="Czerwone" OnContent="Zielone" Toggled="sem1Switch_Toggled"/>
+        <ToggleSwitch Name="sem2Switch" HorizontalAlignment="Center" Margin="250, -380, 0, 0" OffContent="Czerwone" OnContent="Zielone" Toggled="sem2Switch_Toggled"/>
+    </Grid>
+</Page>
