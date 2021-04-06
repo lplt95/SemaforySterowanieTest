@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Threading;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,15 +28,7 @@ namespace SemaforySterowanieTest
         public MainPage()
         {
             this.InitializeComponent();
-            port = new SerialPort();
-            port.PortName = "COM5";
-            port.BaudRate = 9600;
-            port.DtrEnable = true;
-            port.Handshake = Handshake.None;
-            port.Parity = Parity.None;
-            port.DataBits = 8;
-            port.StopBits = StopBits.Two;
-            port.WriteTimeout = 3000;
+            port = new SerialPort("COM3", 9600);
             port.Open();
             DevisibleAllLights();
             SetStartConfig();
@@ -52,20 +45,14 @@ namespace SemaforySterowanieTest
                 }
                 sem1Red.Visibility = Visibility.Collapsed;
                 sem1Green.Visibility = Visibility.Visible;
-                //port.Write("01");
+                Thread.Sleep(1000);
+                port.Write("11");
             }
             else
             {
                 sem1Red.Visibility = Visibility.Visible;
                 sem1Green.Visibility = Visibility.Collapsed;
-                if (sem2Switch.IsOn == true)
-                {
-                    //port.Write("10");
-                }
-                else
-                {
-                    //port.Write("00");
-                }
+                port.Write("10");
             }
         }
 
@@ -79,20 +66,14 @@ namespace SemaforySterowanieTest
                 }
                 sem2Red.Visibility = Visibility.Collapsed;
                 sem2Green.Visibility = Visibility.Visible;
-                //port.Write("10");
+                Thread.Sleep(1000);
+                port.Write("21");
             }
             else
             {
                 sem2Red.Visibility = Visibility.Visible;
                 sem2Green.Visibility = Visibility.Collapsed;
-                if (sem1Switch.IsOn == true)
-                {
-                    //port.Write("01");
-                }
-                else
-                {
-                    //port.Write("00");
-                }
+                port.Write("20");
             }
         }
         private void DevisibleAllLights()
@@ -104,11 +85,16 @@ namespace SemaforySterowanieTest
         }
         private void SetStartConfig()
         {
+            port.Write("RESET");
             sem1Switch.IsOn = false;
             sem2Switch.IsOn = false;
             sem1Red.Visibility = Visibility.Visible;
             sem2Red.Visibility = Visibility.Visible;
-            //port.Write("00");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SetStartConfig();
         }
     }
 }

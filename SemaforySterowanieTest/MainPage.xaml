@@ -10,13 +10,16 @@
 
     <Grid>
         <Image Source="train_track.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Height="810"/>
-        <Image Source="Assets/semafor_empty.jpg" Width="100" HorizontalAlignment="Center" Margin="-210, 600, 0, 0"/>
-        <Image Source="Assets/semafor_empty.jpg" Width="100" HorizontalAlignment="Center" Margin="210, -600, 0, 0"/>
-        <Image Source="Assets/green_light.jpg" Width="70" Margin="-210, 680, 0, 0" Name="sem1Green"/>
-        <Image Source="Assets/green_light.jpg" Width="70" Margin="210, -520, 0, 0" Name="sem2Green"/>
-        <Image Source="Assets/red_light.jpg" Width="70" Margin="-210, 520, 0, 0" Name="sem1Red"/>
-        <Image Source="Assets/red_light.jpg" Width="70" Margin="210, -680, 0, 0" Name="sem2Red"/>
+        <Image Source="Assets/semafor_empty.jpg" Width="100" HorizontalAlignment="Center" Margin="-210, 600, 0, 0" Height="200"/>
+        <Image Source="Assets/semafor_empty.jpg" Width="100" HorizontalAlignment="Center" Margin="210, -600, 0, 0" Height="200"/>
+        <Image Source="Assets/green_light.jpg" Width="70" Margin="-210, 680, 0, 0" Name="sem1Green" Height="80"/>
+        <Image Source="Assets/green_light.jpg" Width="70" Margin="210, -520, 0, 0" Name="sem2Green" Height="80"/>
+        <Image Source="Assets/red_light.jpg" Width="70" Margin="-210, 520, 0, 0" Name="sem1Red" Height="80"/>
+        <Image Source="Assets/red_light.jpg" Width="70" Margin="210, -680, 0, 0" Name="sem2Red" Height="80"/>
         <ToggleSwitch Name="sem1Switch" HorizontalAlignment="Center" Margin="-180, 380, 0, 0" OffContent="Czerwone" OnContent="Zielone" Toggled="sem1Switch_Toggled"/>
         <ToggleSwitch Name="sem2Switch" HorizontalAlignment="Center" Margin="250, -380, 0, 0" OffContent="Czerwone" OnContent="Zielone" Toggled="sem2Switch_Toggled"/>
+        <TextBlock HorizontalAlignment="Center" Margin="200, -830, 0, 0" Text="Semafor 2" Height="30" FontSize="22"/>
+        <TextBlock HorizontalAlignment="Center" Margin="-210, 850, 0, 0" Text="Semafor 1" Height="30" FontSize="22"/>
+        <Button HorizontalAlignment="Center" Margin="300, 0, 0, 0" Content="RESET" FontSize="30" Click="Button_Click"/>
     </Grid>
 </Page>
