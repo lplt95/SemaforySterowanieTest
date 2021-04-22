@@ -130,7 +130,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\green.png" />
     <Content Include="Assets\green_light.jpg" />
+    <Content Include="Assets\red.png" />
     <Content Include="Assets\red_light.jpg" />
     <Content Include="Assets\semafor_empty.jpg" />
     <Content Include="Properties\Default.rd.xml" />
